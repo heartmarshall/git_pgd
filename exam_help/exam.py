@@ -8,7 +8,7 @@ SEND_TO_GIT_SCRIPT = os.path.join(os.getcwd(), "send.sh")
 os.makedirs(PICS_DIR, exist_ok=True)
 
 DELAY = 0  # Задержка перед тем, как программа начёнет делать скриншоты
-LOOPS_NUM = 10  # Сколько раз будет сделан скриншот
+LOOPS_NUM = 20  # Сколько раз будет сделан скриншот
 SLEEP_TIME = 1  # Промежуток в секундах между скриншотами
 
 time.sleep(DELAY)
@@ -23,7 +23,7 @@ for screenshot_num in range(1, LOOPS_NUM+1):
     time.sleep(SLEEP_TIME)
     if screenshot_num % 5 == 0:
         dir_num += 1
-        subprocess.run(args=[SEND_TO_GIT_SCRIPT, str(dir_num)], shell=True)
-        # os.system(SEND_TO_GIT_SCRIPT)
+        # subprocess.run(args=[SEND_TO_GIT_SCRIPT, str(dir_num)], shell=True)
+        os.system(SEND_TO_GIT_SCRIPT + ' ' + str(dir_num))
 
 os.system(SEND_TO_GIT_SCRIPT)
